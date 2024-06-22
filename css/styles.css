@@ -1,0 +1,180 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 10px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", serif;
+  color: #b0b0b0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+caption {
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  color: #fff;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #6b6c6b;
+  padding: 6px;
+  text-align: left;
+}
+
+thead th {
+  font-weight: bold;
+  text-align: right;
+}
+
+thead th:first-child,
+tbody td:first-child {
+  text-align: left;
+}
+
+tbody td {
+  text-align: right;
+}
+
+#citiesTable {
+  font-size: 14px;
+}
+
+.button-container button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button-container button:not(:first-child) {
+  margin-left: 10px;
+}
+
+button {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #0a8dff;
+  padding: 8px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 32px;
+}
+
+button.active {
+  background-color: #0a8dff;
+  color: #fff;
+}
+
+button:focus {
+  outline: 2px solid #0a8dff;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropdown-container > div {
+  margin-bottom: 10px;
+}
+
+.dropdown-container select {
+  width: auto;
+  min-width: 120px;
+}
+
+select.dropdown {
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+select.dropdown:focus {
+  outline: none;
+  border-color: #0a8dff;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  main {
+    max-width: 992px;
+    padding: 0;
+  }
+
+  .dropdown-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .dropdown-container > div {
+    flex: none;
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  select.dropdown {
+    padding: 4px 16px;
+    font-size: 16px;
+  }
+
+  #citiesTable {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    max-width: 95%;
+  }
+}

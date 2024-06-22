@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Se statistikk over boligpriser i forskjellige byer i Norge."
+    />
+    <title>Boligprisstatistikk i Norge</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="./js/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Boligprisstatistikk i Norge</h1>
+    </header>
+    <main>
+      <section aria-labelledby="table-title">
+        <h2 id="table-title">Prisstatistikk Tabell</h2>
+        <div class="table-responsive">
+          <table id="citiesTable" aria-describedby="table-description">
+            <caption id="table-description">
+              Tabellen viser prisstatistikk for forskjellige byer i Norge.
+            </caption>
+            <thead>
+              <tr>
+                <th>By</th>
+                <th>Siste måned</th>
+                <th>Sesongjustert</th>
+                <th>Hittil i år</th>
+                <th>Snitt kvm. pris (kr)</th>
+                <th>Snittspris (kr)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="chart-title">
+        <h2 id="chart-title">Sammenligning av Boligpriser</h2>
+        <div id="info-section"></div>
+        <div class="dropdown-container">
+          <label for="city-select1">Velg første by:</label>
+          <select id="city-select1" name="firstCity" class="dropdown"></select>
+
+          <label for="city-select2">Velg andre by:</label>
+          <select id="city-select2" name="secondCity" class="dropdown"></select>
+        </div>
+        <canvas
+          id="comparisonChart"
+          aria-label="Graf som sammenligner boligpriser mellom valgte byer"
+        ></canvas>
+      </section>
+    </main>
+  </body>
+</html>
