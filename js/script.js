@@ -118,11 +118,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const { labels: labels1, values: values1 } = getChartData(
       currentPrice1,
-      data1[selectedDataKey]
+      data1[selectedDataKey],
+      selectedDataKey
     );
     const { labels: labels2, values: values2 } = getChartData(
       currentPrice2,
-      data2[selectedDataKey]
+      data2[selectedDataKey],
+      selectedDataKey
     );
 
     chart = new Chart(chartCanvas, {
@@ -215,9 +217,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     return { labels: labels[selectedDataKey], values };
   };
 
-  const calculatePrices = (currentValue, percentChange) => {
+  const calculatePrices = (currentValue, percentChange, selectedDataKey) => {
     let prices = [currentValue];
-    let previousPrice = currentValue / (1 + percentChange / 100);
+    let previousPrice;
+
+    switch (selectedDataKey) {
+      case "Endring siste måned":
+      case "Endring sesongjustert siste måned":
+        previousPrice = currentValue / (1 + percentChange / 100);
+        break;
+      case "Endring hittil i år":
+        const monthsInYear = new Date().getMonth() + 1;
+        previousPrice =
+          currentValue / Math.pow(1 + percentChange / 100, 1 / monthsInYear);
+        break;
+      case "Endring siste år":
+        previousPrice = currentValue / (1 + percentChange / 100);
+        break;
+      case "Endring siste 5 år":
+        previousPrice = currentValue / Math.pow(1 + percentChange / 100, 1 / 5);
+        break;
+      case "Endring siste 10 år":
+        previousPrice =
+          currentValue / Math.pow(1 + percentChange / 100, 1 / 10);
+        break;
+      default:
+        previousPrice = currentValue / (1 + percentChange / 100);
+    }
+
     prices.unshift(previousPrice);
     return prices;
   };
